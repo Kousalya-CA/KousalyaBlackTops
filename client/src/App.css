@@ -1,0 +1,26 @@
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100vh;
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  background: #2b2d2f;
+  color: #f2c230;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  letter-spacing: -0.02em;
+  border-top: 6px dashed #f2c230;
+  border-bottom: 6px dashed #f2c230;
+  padding: 1.5rem 0;
+}
+
+.error { color: #ff8a80; font-family: Arial, sans-serif; }
