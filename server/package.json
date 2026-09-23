@@ -7,15 +7,7 @@
     "start": "node server/index.js",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\""
   },
-<<<<<<< HEAD
-  "dependencies": {
-  "cors": "^2.8.5",
-  "express": "^4.21.0"
-}
-}
-=======
   "devDependencies": {
     "concurrently": "^9.0.1"
   }
 }
->>>>>>> 3d4a84e (Prepare for Azure App Service)
