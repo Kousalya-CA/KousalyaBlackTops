@@ -1,14 +1,21 @@
 {
-  "name": "hello-blacktops-server",
-  "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
+  "name": "hello-blacktops",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js"
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run install:all && npm run build --prefix client",
+    "start": "node server/index.js",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\""
   },
+<<<<<<< HEAD
   "dependencies": {
   "cors": "^2.8.5",
   "express": "^4.21.0"
 }
 }
+=======
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
+>>>>>>> 3d4a84e (Prepare for Azure App Service)

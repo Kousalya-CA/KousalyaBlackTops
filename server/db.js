@@ -5,7 +5,6 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const db = new DatabaseSync(path.join(__dirname, "blacktops.db"));
 
-// Create the table and seed the greeting on first run
 db.exec(`
   CREATE TABLE IF NOT EXISTS messages (
     id   INTEGER PRIMARY KEY AUTOINCREMENT,
