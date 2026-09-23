@@ -1,9 +1,9 @@
-import Database from "better-sqlite3";
+import { DatabaseSync } from "node:sqlite";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const db = new Database(path.join(__dirname, "blacktops.db"));
+const db = new DatabaseSync(path.join(__dirname, "blacktops.db"));
 
 // Create the table and seed the greeting on first run
 db.exec(`
