@@ -22,4 +22,27 @@ if (row) {
   db.prepare("INSERT INTO messages (text) VALUES (?)").run(GREETING);
 }
 
+// Users table for authentication and admin access
+db.exec(`
+  CREATE TABLE IF NOT EXISTS users (
+    id       INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    isAdmin  INTEGER NOT NULL DEFAULT 0,
+    createdAt TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+`);
+
+// Insert default admin user if not exists (password: admin123)
+const adminUser = db.prepare("SELECT id FROM users WHERE username = ?").get("admin");
+if (!adminUser) {
+  db.prepare("INSERT INTO users (username, password, isAdmin) VALUES (?, ?, ?)").run("admin", "admin123", 1);
+}
+
+// Insert default regular user if not exists (password: user123)
+const regularUser = db.prepare("SELECT id FROM users WHERE username = ?").get("user");
+if (!regularUser) {
+  db.prepare("INSERT INTO users (username, password, isAdmin) VALUES (?, ?, ?)").run("user", "user123", 0);
+}
+
 export default db;
